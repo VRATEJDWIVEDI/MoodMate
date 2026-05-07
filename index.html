@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MoodMate</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Schoolbell&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="top-bar">
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    <img src="assets/HSZXOP3XLJSXZR5VXMIJPRFBKXCEPWSB.gif" alt="">
+    <img src="assets/471511elpgc0ut0x.gif" alt="">
+    <img src="assets/Bar_Eternal_Sugar_Cookie.gif" alt="">
+    <img src="assets/Bar_Internet_Angel_2.jpeg" alt="">
+    <img src="assets/blink-0.gif" alt="">
+    <img src="assets/Blinkie_Fenneko_hahahahahahaha.gif" alt="">
+    <img src="assets/Blinkie_Sweet_Dreams_2.gif" alt="">
+    <img src="assets/haveasmile.gif" alt="">
+    
+  </marquee>
+</div>
+  <h1><img src="assets/flamingtext_com-2977479317 (1).png" alt="My Website Title"></h1>
+  <!-- Mood Selection -->
+  <h1>Select Your Mood</h1>
+  <div class="moods">
+    <button onclick="selectMood('happy')">😊 Happy</button>
+    <button onclick="selectMood('sad')">😔 Sad</button>
+    <button onclick="selectMood('stressed')">😰 Stressed</button>
+    <button onclick="selectMood('tired')">😴 Tired</button>
+    <button onclick="selectMood('Anger')">😠 Anger</button>
+  </div>
+
+  <div id="helpPanel" class="hidden">
+    <h3>You are not alone 💙</h3>
+    <p>If you feel unsafe, please contact:</p>
+    <a href="tel:18005990019">📞 Kiran Helpline</a><br>
+    <a href="tel:112">🚨 Emergency</a>
+    <p>Try breathing slowly...</p>
+  </div>
+
+  <!-- Suggestions -->
+  <div id="suggestions"></div>
+
+  <!-- Journal -->
+  <h2>Express Yourself</h2>
+  <textarea id="feelingInput" placeholder="Write what you're feeling..."></textarea><br>
+  <button onclick="saveFeeling()">Save</button>
+  <button onclick="shareFeeling()">Share</button>
+  <h2>
+  📖 Your Journal 
+  <button onclick="clearJournal()">🗑️</button>
+  </h2>
+  <div id="journalList"></div>
+
+  <!-- Thought -->
+  <div class="thought-box">
+    <h2>Thought of the Day</h2>
+    <img id="thoughtImage" src="assets/thought.jpg" alt="thought image">
+    <p id="thought"></p>
+      <!-- Moving line -->
+    <p id="movingThought" class="hidden"></p>
+    <button onclick="showRandomThought()">New Thought</button>
+  </div>
+  
+  <!-- Favorites -->
+  <h2>❤️ Favorites</h2>
+  <div id="favorites"></div>
+
+  <!-- Emergency -->
+  <button id="helpBtn" onclick="toggleHelp()">🚨 Need Help?</button>
+
+  <footer class="footer">
+  <p>🌸 MoodMate © 2026</p>
+
+  <p>
+    Made with ❤️ by VRATEJ DWIVEDI
+  </p>
+
+  <div class="footer-links">
+    <a href="#">🏠 Home</a>
+    <a href="#">📖 Journal</a>
+    <a href="#">💡 Help</a>
+  </div>
+
+  <p class="footer-quote">“Take care of your mind 💭”</p>
+</footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>
