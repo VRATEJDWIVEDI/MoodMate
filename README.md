@@ -41,13 +41,6 @@ MoodMate is an interactive web application designed to help users track their em
 
 ---
 
-## 📸 Screenshots
-
-![Home](Screenshot (4).png)
-
-
----
-
 ## 💡 How It Works
 
 - Users select their current mood
