@@ -254,3 +254,35 @@ button {
     transform: translateX(-100%);
   }
 }
+
+.insight-box {
+  position: fixed;
+  left: 20px;
+  top: 120px;
+
+  width: 250px;
+
+  background: rgba(255, 255, 255, 0.315);
+  color: red;
+
+  padding: 15px;
+  border-radius: 15px;
+
+  box-shadow: 0 0 10px red;
+
+  z-index: 1000;
+}
+
+.insight-box h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.insight-box p {
+  font-size: 14px;
+  margin: 4px 0;
+}
+function resetMoodStats() {
+  localStorage.removeItem("moods");
+  showInsights();
+}

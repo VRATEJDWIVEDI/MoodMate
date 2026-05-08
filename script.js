@@ -120,6 +120,13 @@ Let’s channel it in a way that doesn’t hurt you or anyone else:`,
 
 // Mood Selection
 function selectMood(mood) {
+
+  // 🧠 STORE MOOD (NEW ADDITION)
+  let moods = JSON.parse(localStorage.getItem("moods")) || [];
+  moods.push(mood);
+  localStorage.setItem("moods", JSON.stringify(moods));
+
+  // EXISTING CODE (UNCHANGED)
   document.body.className = mood;
   const container = document.getElementById("suggestions");
   container.innerHTML = "";
@@ -152,6 +159,9 @@ function selectMood(mood) {
 
     container.appendChild(div);
   });
+
+  // 📊 UPDATE INSIGHTS (NEW ADDITION)
+  showInsights();
 }
 
 // Favorites
@@ -229,4 +239,65 @@ function clearJournal() {
 // Emergency
 function toggleHelp() {
   document.getElementById("helpPanel").classList.toggle("hidden");
+}
+
+// 📊 Mood Analytics
+function getMoodStats() {
+  let moods = JSON.parse(localStorage.getItem("moods")) || [];
+
+  let stats = {
+    total: moods.length,
+    happy: 0,
+    sad: 0,
+    stressed: 0,
+    tired: 0,
+    Anger: 0
+  };
+
+  moods.forEach(m => {
+    if (stats[m] !== undefined) {
+      stats[m]++;
+    }
+  });
+
+  return stats;
+}
+
+function getTopMood(stats) {
+  let max = 0;
+  let top = "None";
+
+  for (let mood in stats) {
+    if (mood !== "total" && stats[mood] > max) {
+      max = stats[mood];
+      top = mood;
+    }
+  }
+
+  return top;
+}
+
+function showInsights() {
+  let stats = getMoodStats();
+  let top = getTopMood(stats);
+
+  document.getElementById("insights").innerHTML = `
+    <h3>📊 Mood Stats</h3>
+    <p>Total: ${stats.total}</p>
+    <p>Top Mood: ${top}</p>
+    <p>😊 ${stats.happy}</p>
+    <p>😔 ${stats.sad}</p>
+    <p>😰 ${stats.stressed}</p>
+    <p>😴 ${stats.tired}</p>
+    <p>😠 ${stats.Anger}</p>
+
+    <button onclick="resetMoodStats()">🗑 Reset</button>
+  `;
+}
+
+// Load on start
+showInsights();
+function resetMoodStats() {
+  localStorage.removeItem("moods");
+  showInsights();
 }
